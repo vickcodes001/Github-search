@@ -1,0 +1,39 @@
+import { FiSearch } from "react-icons/fi"
+import { useState } from 'react'
+
+
+const Search = ({ isDark, data, search, setSearch, onSearch }:{ isDark: boolean; data: object; search: string; setSearch:() => void, onSearch: () => void } ) => {
+  // const [search, setSearch] = useState("")
+  // const [data, setData] = useState({})
+  
+  
+  // const handleSearch = async () => {
+  //   try {
+  //     const res = await fetch(`${url}${search}`)
+  //     const users = await res.json()
+  //     setData(users)
+  //     console.log(users.items)
+  //   } catch (err) {
+  //     console.error("Error fetching GitHub users:", err)
+  //   }
+  // }
+
+    return (
+        <>
+          <div className={`lg:w-[60%] text-xl relative h-15 rounded-xl ${ isDark ? "bg-slate-800" : "bg-white text-black shadow-xl"}`}>
+            <FiSearch className="absolute top-4 left-7 text-3xl text-blue-500" />
+            <input 
+               type="text" 
+               className={`outline-none px-20 h-15 ${isDark ? "" : "text-black" } rounded-xl w-[85%] lg:w-[90%]`} 
+               placeholder="Search GitHub username..." 
+               value={search} 
+               onChange={(e) => setSearch(e.target.value)}
+            />
+            <button onClick={onSearch} className={` px-5 py-3 rounded-md ${isDark ? "bg-blue-700" : "text-white bg-blue-700" } absolute right-3 top-2 text-[15px] cursor-pointer hover:bg-blue-800`}>Search</button>
+            
+          </div>
+        </>
+    )
+}
+
+export default Search
