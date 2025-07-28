@@ -26,24 +26,37 @@ function App() {
   const [isDark, setIsDark] = useState(true);
   const [search, setSearch] = useState("");
   const [data, setData] = useState<GitHubUser | null>(null);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   const handleSearch = async () => {
+    const trimmed = search.trim();
+    console.log(trimmed);
+
+    if (!trimmed) {
+      setError("Please enter a username");
+      setTimeout(() => setError(""), 3000);
+      setData(null); // Optional: clear previously shown data
+      return;
+    }
+
     try {
-      const res = await fetch(`${url}${search}`);
+      const res = await fetch(`${url}${trimmed}`);
       const users = await res.json();
-      
-      if (users.message === "Not found") {
-        setError("User not found")
-        setData(null)
-        return
+
+      console.log("API Response:", users);
+
+      if (users.status === "404") {
+        setError("User not found");
+        setTimeout(() => setError(""), 3000);
+        setData(null);
+        return;
       }
-      
-      setError("")
+
+      setError("");
       setData(users);
     } catch (err) {
       console.error("Error fetching GitHub users:", err);
-      setError("Something went wrong")
+      setError("Something went wrong");
     }
   };
 
@@ -57,7 +70,6 @@ function App() {
         <Header isDark={isDark} setIsDark={setIsDark} />
         <Search
           isDark={isDark}
-          data={data}
           search={search}
           setSearch={setSearch}
           onSearch={handleSearch}
@@ -70,9 +82,13 @@ function App() {
               : "bg-white text-slate-900 shadow-2xl"
           }`}
         >
-          {data && <Hero data={data} />}
-          {data && <Stats isDark={isDark} data={data} />}
-          {data && <Info data={data} />}
+          {data && (
+            <>
+              <Hero data={data} />
+              <Stats isDark={isDark} data={data} />
+              <Info data={data} />
+            </>
+          )}
         </div>
       </div>
     </>

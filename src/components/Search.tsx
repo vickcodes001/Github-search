@@ -1,21 +1,5 @@
 import { FiSearch } from "react-icons/fi"
 
-interface GitHubUser {
-  avatar_url: string;
-  login: string;
-  created_at: string;
-  bio: string;
-  location: string;
-  name: string;
-  public_repos: string;
-  followers: string;
-  following: string;
-  html_url: string,
-  twitter_username: string,
-  company: string,
-}
-
-
 const Search = ({ 
   isDark, 
   search, 
@@ -25,7 +9,6 @@ const Search = ({
   }
     :{ 
       isDark: boolean; 
-      data: GitHubUser | null; 
       search: string; 
       error: string;
       setSearch: React.Dispatch<React.SetStateAction<string>>, 
@@ -44,10 +27,10 @@ const Search = ({
                value={search} 
                onChange={(e) => setSearch(e.target.value)}
             />
-            {error && <p>{error}</p>}
             <button onClick={onSearch} className={` px-5 py-3 rounded-md ${isDark ? "bg-blue-700" : "text-white bg-blue-700" } absolute right-3 top-2 text-[15px] cursor-pointer hover:bg-blue-800`}>Search</button>
             
           </div>
+            {error && <p className="text-red-900 lg-w-[60%] text-center">{error}</p>}
         </>
     )
 }
