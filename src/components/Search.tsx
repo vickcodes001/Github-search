@@ -19,12 +19,15 @@ interface GitHubUser {
 const Search = ({ 
   isDark, 
   search, 
+  error, 
   setSearch, 
-  onSearch }
+  onSearch,
+  }
     :{ 
       isDark: boolean; 
       data: GitHubUser | null; 
       search: string; 
+      error: string;
       setSearch: React.Dispatch<React.SetStateAction<string>>, 
       onSearch: () => void 
     } ) => {
@@ -41,6 +44,7 @@ const Search = ({
                value={search} 
                onChange={(e) => setSearch(e.target.value)}
             />
+            {error && <p>{error}</p>}
             <button onClick={onSearch} className={` px-5 py-3 rounded-md ${isDark ? "bg-blue-700" : "text-white bg-blue-700" } absolute right-3 top-2 text-[15px] cursor-pointer hover:bg-blue-800`}>Search</button>
             
           </div>

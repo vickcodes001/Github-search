@@ -26,15 +26,24 @@ function App() {
   const [isDark, setIsDark] = useState(true);
   const [search, setSearch] = useState("");
   const [data, setData] = useState<GitHubUser | null>(null);
+  const [error, setError] = useState("")
 
   const handleSearch = async () => {
     try {
       const res = await fetch(`${url}${search}`);
       const users = await res.json();
+      
+      if (users.message === "Not found") {
+        setError("User not found")
+        setData(null)
+        return
+      }
+      
+      setError("")
       setData(users);
-      console.log(users.items);
     } catch (err) {
       console.error("Error fetching GitHub users:", err);
+      setError("Something went wrong")
     }
   };
 
@@ -52,6 +61,7 @@ function App() {
           search={search}
           setSearch={setSearch}
           onSearch={handleSearch}
+          error={error}
         />
         <div
           className={`flex flex-col gap-5 w-[100%] lg:w-[60%] bg-slate-800 p-5 lg:p-10 rounded-xl transition-all ${
