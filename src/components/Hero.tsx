@@ -1,6 +1,12 @@
-import jiggy from "/images/jiggy.jpg";
+interface GitHubUser {
+  avatar_url: string;
+  login: string;
+  created_at: string;
+  bio: string;
+  name: string;
+}
 
-const Hero = ({ data }:{data: object}) => {
+const Hero = ({ data }:{data: GitHubUser}) => {
   return (
     <>
       <div className="flex flex-col gap-10 lg:gap-0 w-[100%]">
@@ -11,6 +17,7 @@ const Hero = ({ data }:{data: object}) => {
                 <img
                     src={data.avatar_url}
                     alt="user profile"
+                    loading="lazy"
                     className="rounded-full w-30 lg:w-40 h-30 lg:h-40 object-cover"
                 />
                 </div>

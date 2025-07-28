@@ -1,4 +1,10 @@
-const Stats = ({ isDark, data }:{ isDark: boolean; data: object}) => {
+interface GitHubUser {
+  public_repos: string;
+  followers: string;
+  following: string;
+}
+
+const Stats = ({ isDark, data }:{ isDark: boolean; data: GitHubUser}) => {
   return (
     <>
         <div className={`flex ${isDark ? "bg-slate-900" : "bg-gray-300" } h-25 lg:ml-45 lg:w-[72%] px-10 rounded-xl`}>

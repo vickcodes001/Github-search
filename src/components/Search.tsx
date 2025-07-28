@@ -1,22 +1,34 @@
 import { FiSearch } from "react-icons/fi"
-import { useState } from 'react'
+
+interface GitHubUser {
+  avatar_url: string;
+  login: string;
+  created_at: string;
+  bio: string;
+  location: string;
+  name: string;
+  public_repos: string;
+  followers: string;
+  following: string;
+  html_url: string,
+  twitter_username: string,
+  company: string,
+}
 
 
-const Search = ({ isDark, data, search, setSearch, onSearch }:{ isDark: boolean; data: object; search: string; setSearch:() => void, onSearch: () => void } ) => {
-  // const [search, setSearch] = useState("")
-  // const [data, setData] = useState({})
-  
-  
-  // const handleSearch = async () => {
-  //   try {
-  //     const res = await fetch(`${url}${search}`)
-  //     const users = await res.json()
-  //     setData(users)
-  //     console.log(users.items)
-  //   } catch (err) {
-  //     console.error("Error fetching GitHub users:", err)
-  //   }
-  // }
+const Search = ({ 
+  isDark, 
+  search, 
+  setSearch, 
+  onSearch }
+    :{ 
+      isDark: boolean; 
+      data: GitHubUser | null; 
+      search: string; 
+      setSearch: React.Dispatch<React.SetStateAction<string>>, 
+      onSearch: () => void 
+    } ) => {
+
 
     return (
         <>
