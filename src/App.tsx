@@ -63,7 +63,7 @@ function App() {
   return (
     <>
       <div
-        className={`w-[100%] px-5 lg:px-0 h-[100vh] flex flex-col justify-center gap-5 lg:py-90 items-center transition-all ${
+        className={`w-[100%] h-[110vh] px-5 pt-10 lg:pt-10 lg:px-0 flex flex-col justify-start gap-5 items-center transition-all ${
           isDark ? "bg-slate-900 text-white" : "bg-gray-200"
         }`}
       >
