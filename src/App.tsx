@@ -63,14 +63,14 @@ function App() {
           onSearch={handleSearch}
         />
         <div
-          className={`flex flex-col gap-5 w-[100%] lg:w-[60%] bg-slate-800 rounded-xl transition-all ${
+          className={`flex flex-col gap-5 px-5 w-[100%] lg:w-[60%] bg-slate-800 rounded-xl transition-all ${
             isDark
               ? "bg-slate-800 text-white" 
               : "bg-white text-slate-900 shadow-2xl"
           }`}
         >
           {loading && <div className="flex justify-center p-5"><SpinnerCircular size={50} color="#00BFFF" /></div>}
-          {error && <p className="text-red-900 text-center text-xl font-bold p-5">{error}</p>}
+          {error && <p className="text-red-600 text-center text-xl font-bold p-5">{error}</p>}
           {data && (
             <>
               <Hero data={data} />

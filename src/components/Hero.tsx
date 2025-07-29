@@ -3,7 +3,7 @@ import type { GitHubUser } from "../type";
 const Hero = ({ data }: { data: GitHubUser }) => {
   return (
     <>
-      <div className="flex flex-col gap-10 lg:gap-0 w-[100%]">
+      <div className="flex flex-col gap-10 lg:gap-0 w-[100%] pt-10">
         <div className="flex items-center lg:items-start gap-3">
           {/* image container */}
           <div className="w-60">

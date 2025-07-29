@@ -5,7 +5,7 @@ import type { GitHubUser } from "../type";
 const Info = ({ data }: { data: GitHubUser }) => {
   return (
     <>
-      <div className="flex flex-col lg:flex-row gap-5 lg:gap-5 lg:ml-45 mt-5">
+      <div className="flex flex-col lg:flex-row gap-5 lg:gap-5 lg:ml-45 mt-5 pb-10">
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-2 text-[14px]">
             <FaLocationDot />
