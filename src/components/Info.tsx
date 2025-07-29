@@ -1,12 +1,6 @@
 import { BsBuildings } from "react-icons/bs";
 import { FaLink, FaLocationDot, FaTwitter } from "react-icons/fa6";
-
-interface GitHubUser {
-  location: string;
-  html_url: string;
-  twitter_username: string;
-  company: string;
-}
+import type { GitHubUser } from "../type";
 
 const Info = ({ data }: { data: GitHubUser }) => {
   return (
@@ -19,7 +13,7 @@ const Info = ({ data }: { data: GitHubUser }) => {
           </div>
           <div className="flex items-center gap-2 text-[14px]">
             <FaLink />
-            <a href={data.html_url} target="_blank">
+            <a href={data.html_url} target="_blank" className="text-blue-500">
               {data.html_url ? data.html_url : "Url not available"}
             </a>
           </div>

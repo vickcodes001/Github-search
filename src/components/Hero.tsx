@@ -1,10 +1,4 @@
-interface GitHubUser {
-  avatar_url: string;
-  login: string;
-  created_at: string;
-  bio: string;
-  name: string;
-}
+import type { GitHubUser } from "../type";
 
 const Hero = ({ data }: { data: GitHubUser }) => {
   return (

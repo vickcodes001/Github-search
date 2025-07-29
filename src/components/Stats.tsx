@@ -1,8 +1,4 @@
-interface GitHubUser {
-  public_repos: string;
-  followers: string;
-  following: string;
-}
+import type { GitHubUser } from "../type";
 
 const Stats = ({ isDark, data }:{ isDark: boolean; data: GitHubUser}) => {
   return (

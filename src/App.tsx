@@ -4,21 +4,7 @@ import Hero from "./components/Hero";
 import Stats from "./components/Stats";
 import Info from "./components/Info";
 import Header from "./components/Header";
-
-interface GitHubUser {
-  avatar_url: string;
-  login: string;
-  created_at: string;
-  bio: string;
-  location: string;
-  name: string;
-  public_repos: string;
-  followers: string;
-  following: string;
-  html_url: string;
-  twitter_username: string;
-  company: string;
-}
+import type { GitHubUser } from "./type";
 
 const url = "https://api.github.com/users/";
 
