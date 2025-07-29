@@ -15,16 +15,16 @@ const Hero = ({ data }: { data: GitHubUser }) => {
             />
           </div>
           {/* second sub container */}
-          <div className="flex flex-col lg:flex-row gap-2 lg:gap-0 lg:justify-between w-full">
+          <div className="flex flex-col lg:flex-row gap-1 lg:gap-0 lg:justify-between w-full">
             {/* user details */}
             <div>
-              <h2 className="text-2xl mb-3 h-10">{data.name}</h2>
+              <h2 className="text-xl lg:text-2xl lg:mb-3 h-10">{data.name}</h2>
 
-              <p className="text-blue-700">@{data.login}</p>
+              <p className="text-blue-700 text-[14px] lg:text-xl">@{data.login}</p>
             </div>
             {/* date container */}
             <div>
-              <p className="text-gray-400 font-semibold text-xl">
+              <p className="text-gray-400 font-semibold text-[14px]">
                 Joined{" "}
                 {new Date(data.created_at).toLocaleDateString("en-GB", {
                   year: "numeric",
